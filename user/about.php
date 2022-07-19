@@ -1,10 +1,16 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>About Us</title>
 
     <!-- swiper css link -->
     <link
@@ -20,8 +26,8 @@
 
 </head>
 <body>
-    
-<!-- header sction starts -->
+
+<!-- header section starts -->
 
 <section class="header">
 
@@ -30,15 +36,30 @@
 <nav class="navbar">
     <a href="home.php">Home</a>
     <a href="about.php">About</a>
-    <!-- bagian package diganti product -->
-    <a href="product.php">Product</a>
-    <!-- bagian book diganti contact -->
+    <a href="category.php">Shop</a>
     <a href="contact.php">Contact Us</a>
-    <a href="login_system/register.php"> <i class="fas fa-user"></i></a>
-    <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+    
+    
+
+    <?php
+      if(isset($_SESSION['auth']))
+      {
+         ?>
+         <a href="#">My Order</a>
+         <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+         <?php $_SESSION['auth_user']['name']; ?>
+         <a href="login/logout.php"> <i class="fas fa-sign-out"></i></a>
+         <?php
+      }
+      else
+      {
+         ?>
+         <a href="login/login.php"> Login</a>
+         <?php
+      }
+    ?>
 </nav>
 
-<div id="menu-btn" class="fas fa-bars"></div>
 
 </section>
 

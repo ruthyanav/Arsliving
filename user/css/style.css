@@ -446,11 +446,118 @@ section{
     margin-top: 1rem;
 }
 
-.product-user .box-container{
-    background-color: red;
-    width: 10%;
-    flex-direction: row;
+.products .box-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+ }
+
+ .products .box-container .box{
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--white);
+    box-shadow:1rem;
+    cursor: pointer;
+ }
+
+ .products .box-container .box:hover{
+    background: var(--main-color);
 }
+ 
+ .products .box-container .box img{
+    height: 8rem;
+ }
+
+ .products .box-container .box h3{
+    color: var(--black);
+    font-size: 1.7rem;
+    padding-top: 1rem;
+ }
+
+ .item .box-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+ }
+
+ .item .box-container .box{
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--white);
+    box-shadow:1rem;
+    cursor: pointer;
+ }
+
+ .item .box-container .box:hover{
+    background: var(--main-color);
+}
+ 
+ .item .box-container .box img{
+    height: 8rem;
+ }
+
+ .item .box-container .box h3{
+    color: var(--black);
+    font-size: 1.7rem;
+    padding-top: 1rem;
+ }
+
+ .product-view{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;  
+}
+
+.product-view .image{
+    flex: 1 1 41rem;
+}
+
+.product-view .image img{
+    width: 100%;
+}
+
+.product-view .content{
+    flex:1 1 41rem;
+    padding:3rem;
+    background: var(--light-bg);
+ }
+
+.product-view .content h4{
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.product-view .content h5{
+    color: var(--black);
+    font-size: 1.7rem;
+    padding-top: 1rem;
+}
+
+.product-view .content p{
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    line-height: 2;
+    color: var(--black);
+}
+
+.product-view .btn{
+    display: inline-block;
+    background: var(--black);
+    margin-top: 1rem;
+    color:var(--white);
+    font-size: 1.5rem;
+    padding:1rem 1rem;
+    cursor: pointer;
+ }
+
+ .product-view .btn:hover{
+    background: var(--main-color);
+ }
+
+ .product-view .input-group .btn:hover{
+    background: var(--main-color);
+ }
+ 
 
  .footer .box-container{
     display: grid;

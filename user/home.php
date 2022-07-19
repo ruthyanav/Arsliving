@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +27,7 @@
 </head>
 <body>
 
-<!-- header sction starts -->
+<!-- header section starts -->
 
 <section class="header">
 
@@ -30,15 +36,30 @@
 <nav class="navbar">
     <a href="home.php">Home</a>
     <a href="about.php">About</a>
-    <!-- bagian package diganti product -->
-    <a href="product.php">Product</a>
-    <!-- bagian book diganti contact -->
+    <a href="category.php">Shop</a>
     <a href="contact.php">Contact Us</a>
-    <a href="login.system/register_form.php"> <i class="fas fa-user"></i></a>
-    <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+    
+    
+
+    <?php
+      if(isset($_SESSION['auth']))
+      {
+         ?>
+         <a href="#">My Order</a>
+         <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+         <?php $_SESSION['auth_user']['name']; ?>
+         <a href="login/logout.php"> <i class="fas fa-sign-out"></i></a>
+         <?php
+      }
+      else
+      {
+         ?>
+         <a href="login/login.php"> Login</a>
+         <?php
+      }
+    ?>
 </nav>
 
-<div id="menu-btn" class="fas fa-bars"></div>
 
 </section>
 
@@ -138,7 +159,7 @@
 
 <!-- home product section starts -->
 
-<section class="home-product">
+<!-- <section class="home-product">
 
    <h1 class="heading-title"> Our product </h1>
 
@@ -181,7 +202,7 @@
 
    <div class="load-more"> <a href="product.php" class="btn">Load More</a> </div>
 
-</section>
+</section> -->
 
 
 <!-- home product section ends -->

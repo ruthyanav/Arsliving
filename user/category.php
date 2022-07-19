@@ -6,7 +6,7 @@ include ('function/userfunctions.php');
 
 <head>
    
-   <title>Product</title>
+   <title>Product Category</title>
 
    <!-- swiper css link  -->
    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -32,15 +32,30 @@ include ('function/userfunctions.php');
 <nav class="navbar">
     <a href="home.php">Home</a>
     <a href="about.php">About</a>
-    <!-- bagian package diganti product -->
-    <a href="product.php">Product</a>
-    <!-- bagian book diganti contact -->
+    <a href="category.php">Shop</a>
     <a href="contact.php">Contact Us</a>
-    <a href="login_system/register.php"> <i class="fas fa-user"></i></a>
-    <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+    
+    
+
+    <?php
+      if(isset($_SESSION['auth']))
+      {
+         ?>
+         <a href="#">My Order</a>
+         <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+         <?php $_SESSION['auth_user']['name']; ?>
+         <a href="login/logout.php"> <i class="fas fa-sign-out"></i></a>
+         <?php
+      }
+      else
+      {
+        ?>
+        <a href="login/login.php"> Login</a>
+        <?php
+      }
+    ?>
 </nav>
 
-<div id="menu-btn" class="fas fa-bars"></div>
 
 </section>
 
@@ -52,39 +67,32 @@ include ('function/userfunctions.php');
 
 <!-- packages section starts  -->
 
-<div class="row">
-    <?php
-        $category = getAllActive("category");
-        
-        if(mysqli_num_rows($category) > 0)
-        {
-            foreach($category as $item)
+<section class="products">
+    <div class="box-container">
+        <?php
+            $category = getAllActive("category");
+            
+            if(mysqli_num_rows($category) > 0)
             {
-                ?>  
-                <section class="product-user">
-                    <div class="col-md-3">
-                <div class="box-container">
-                    <div class="box">
-                        <div class="image">
-                            <img src="../admin/uploads/<?= $item['image']; ?>" alt="Category Image" width="100px" height="100px">
-                        </div>
-                        <div class="content">
-                        <h4><?= $item['name']; ?></h4>
-                        </div>
-                        </div>
-                </div>
-                </section>
-
-                
-                <?php
+                foreach($category as $item)
+                {
+                    ?>  
+                    <a href="products.php?category=<?= $item['slug']; ?>">
+                            <div class="box">
+                                <img src="../admin/uploads/<?= $item['image']; ?>" alt="Category Image">
+                                <h3><?= $item['name']; ?></h3>
+                            </div>
+                    </a>
+                    <?php
                 }
             }
-            else
-            {
-                echo "No data available";
-            }
-    ?>
-</div>
+                else
+                {
+                    echo "No data available";
+                }
+        ?>
+    </div>
+</section>
 
 
 <!-- packages section ends -->
@@ -131,14 +139,6 @@ include ('function/userfunctions.php');
 
 </section>
 <!-- footer section ends -->
-
-
-
-
-
-
-
-
 
 <!-- swiper js link  -->
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
