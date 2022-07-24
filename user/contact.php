@@ -38,17 +38,15 @@ session_start();
     <a href="about.php">About</a>
     <a href="category.php">Shop</a>
     <a href="contact.php">Contact Us</a>
-    
-    
 
     <?php
       if(isset($_SESSION['auth']))
       {
          ?>
          <a href="#">My Order</a>
-         <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+         <a href="cart.php">Cart</a>
          <?php $_SESSION['auth_user']['name']; ?>
-         <a href="login/logout.php"> <i class="fas fa-sign-out"></i></a>
+         <a href="login/logout.php">Logout</a>
          <?php
       }
       else
@@ -60,7 +58,7 @@ session_start();
     ?>
 </nav>
 
-
+<div id="menu-btn" class="fas fa-bars"></div>
 
 </section>
 

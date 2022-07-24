@@ -12,17 +12,14 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
-    <!-- swiper css link -->
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
-    />
+    <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
-    <!-- fot awesome cdn link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!-- custom css file link -->
-    <link rel="stylesheet" href="css/style.css">
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
@@ -38,28 +35,27 @@ session_start();
     <a href="about.php">About</a>
     <a href="category.php">Shop</a>
     <a href="contact.php">Contact Us</a>
-    
-    
 
     <?php
       if(isset($_SESSION['auth']))
       {
          ?>
          <a href="#">My Order</a>
-         <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+         <a href="cart.php">Cart</a>
          <?php $_SESSION['auth_user']['name']; ?>
-         <a href="login/logout.php"> <i class="fas fa-sign-out"></i></a>
+         <a href="login/logout.php">Logout</a>
          <?php
       }
       else
       {
-         ?>
-         <a href="login/login.php"> Login</a>
-         <?php
+        ?>
+        <a href="login/login.php"> Login</a>
+        <?php
       }
     ?>
 </nav>
 
+<div id="menu-btn" class="fas fa-bars"></div>
 
 </section>
 
@@ -270,10 +266,10 @@ session_start();
 
 <!-- footer section ends -->
 
-<!-- swiper js link -->
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<!-- swiper js link  -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-<!-- custom js file link -->
+<!-- custom js file link  -->
 <script src="js/script.js"></script>
 
 </body>

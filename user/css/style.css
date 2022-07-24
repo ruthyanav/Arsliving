@@ -557,6 +557,18 @@ section{
  .product-view .input-group .btn:hover{
     background: var(--main-color);
  }
+
+ /* .cart-item .row .column img{
+    height: 8rem;
+ }
+
+ .cart-item .row {
+    display: flex;
+ }
+
+ .cart-item .row .column{
+    flex: 50%;
+ } */
  
 
  .footer .box-container{

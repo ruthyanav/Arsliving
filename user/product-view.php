@@ -21,25 +21,26 @@ if(isset($_SESSION['message']))
     }
 ?>
 
+<!-- swiper css link  -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+<!-- fot awesome cdn link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+<!-- custom css file link  -->
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- alertify js -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
 <head>
 
    <title>Product</title>
 
-   <!-- swiper css link  -->
-   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
-   <!-- fot awesome cdn link -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-   <!-- alertify js -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+  
 
 </head>
 <body>
@@ -61,9 +62,9 @@ if(isset($_SESSION['message']))
       {
          ?>
          <a href="#">My Order</a>
-         <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+         <a href="cart.php">Cart</a>
          <?php $_SESSION['auth_user']['name']; ?>
-         <a href="login/logout.php"> <i class="fas fa-sign-out"></i></a>
+         <a href="login/logout.php">Logout</a>
          <?php
       }
       else
@@ -75,7 +76,7 @@ if(isset($_SESSION['message']))
     ?>
 </nav>
 
-<div id="menu-btn" class="fas fa-bars"></div>
+
 
 </section>
 
@@ -176,11 +177,11 @@ if(isset($_SESSION['message']))
 
 <!-- custom js file link  -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js/custom.js"></script>
 <script src="js/script.js"></script>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script src="js/custom.js"></script>
 
 <script>
     alertify.set('notifier','position', 'top-center');
@@ -194,6 +195,7 @@ if(isset($_SESSION['message']))
     } 
     ?>
   </script>
+
 
 </body>
 </html>

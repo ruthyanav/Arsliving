@@ -38,6 +38,64 @@ if(isset($_SESSION['auth']))
                 }
                 break;
 
+            case "update":
+                $prod_id = $_POST['prod_id'];
+                $prod_qty = $_POST['prod_qty'];
+
+                $user_id = $_SESSION['auth_user']['user_id'];
+
+                $check_existing_cart = "SELECT * FROM cart WHERE prod_id = '$prod_id' AND user_id = '$user_id'";
+                $check_existing_cart_run = mysqli_query($con, $check_existing_cart);
+                
+                if(mysqli_num_rows($check_existing_cart_run) > 0)
+                {
+                    $update_query = "UPDATE cart SET prod_qty='$prod_qty' WHERE prod_id='$prod_id' AND user_id='$user_id' ";
+                    $update_query_run = mysqli_query($con, $update_query);
+
+                    if($update_query_run)
+                    {
+                        echo "Product quantity updated";
+                    }
+                    else
+                    {
+                        echo "Something went wrong";
+                    }
+                }
+                else
+                {
+                    echo "Something went wrong";
+                }
+
+                break;
+
+            case "delete":
+                $cart_id = $_POST['cart_id'];
+
+                $user_id = $_SESSION['auth_user']['user_id'];
+
+                $check_existing_cart = "SELECT * FROM cart WHERE id = '$cart_id' AND user_id = '$user_id'";
+                $check_existing_cart_run = mysqli_query($con, $check_existing_cart);
+
+                if(mysqli_num_rows($check_existing_cart_run) > 0)
+                {
+                    $delete_query = "DELETE FROM cart WHERE id='$cart_id' ";
+                    $delete_query_run = mysqli_query($con, $delete_query);
+
+                    if($delete_query_run)
+                    {
+                        echo 200;
+                    }
+                    else
+                    {
+                        echo "Something went wrong";
+                    }
+                }
+                else
+                {
+                    echo "Something went wrong";
+                }
+                break;
+
             default:
                 echo 500;
         }
