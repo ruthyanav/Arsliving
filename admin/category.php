@@ -39,7 +39,7 @@ include 'function/myfunction.php';
                                                 <img src="../admin/uploads/<?= $item['image']; ?>" width="100px" height="100px" alt="<?= $item['name']; ?>">
                                             </td>
                                             <td>
-                                                <?= $item['status'] ==  '0'? "Visible": "Hidden" ?>
+                                                <?= $item['hidden'] ==  '0'? "Visible": "Hidden" ?>
                                             </td>
 
                                             <td>

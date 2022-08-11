@@ -48,7 +48,7 @@ include ('authenticate.php');
       if(isset($_SESSION['auth']))
       {
          ?>
-         <a href="#">My Order</a>
+         <a href="my_order.php">My Order</a>
          <a href="cart.php">Cart</a>
          <?php $_SESSION['auth_user']['name']; ?>
          <a href="login/logout.php">Logout</a>
@@ -75,60 +75,91 @@ include ('authenticate.php');
         <div class="">
             <div class="row">
                 <div class="col-md-12">
-                <div class="row align-items-center">
-                    <div class="col-md-5">
-                        <h6>Product</h6>
-                    </div>
-
-                    <div class="col-md-3">
-                        <h6>Price</h6>
-                    </div>
-
-                    <div class="col-md-2">
-                        <h6>Quantity</h6>
-                    </div>
-
-                    <div class="col-md-2">
-                        <h6>Remove</h6>
-                    </div>
-                </div>
-                    <div id="mycart">
-                        <?php $items = getCartItems();
-                        foreach ($items as $citem)
-                        {
-                            ?>
-                            <div class="card product_data mb-3 ">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-2">
-                                            <img src="../admin/uploads/<?= $citem['image']; ?>" alt="Image" width="100px">
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <h5><?= $citem['name']; ?></h5>
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <h5>Rp <?= $citem['selling_price']; ?></h5>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <input type="hidden" class="prodId" value="<?= $citem['prod_id'] ?>">
-                                            <div class="input-group mb-3" style="width:130px">
-                                                <button class="input-group-text decrement-btn updateQty">-</button>
-                                                <input type="text" class="form-control text-center input-qty bg-white" value="<?= $citem['prod_qty']; ?>" disabled>
-                                                <button class="input-group-text increment-btn updateQty">+</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <button class="btn btn-danger btn-sm deleteItem" value="<?= $citem['cid']; ?>"><i class="fa fa-trash me-2"></i> Remove</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php
-                        }
+                <?php 
+                    $items = getCartItems();
+                        
+                    if(mysqli_num_rows($items) > 0) {
                         ?>
-                    </div>
+                        <div class="row align-items-center">
+                            <div class="col-md-5">
+                                <h6>Product</h6>
+                            </div>
+
+                            <div class="col-md-3">
+                                <h6>Price</h6>
+                            </div>
+
+                            <div class="col-md-2">
+                                <h6>Quantity</h6>
+                            </div>
+
+                            <!-- <div class="col-md-2">
+                                <h6>Total Price</h6>
+                            </div> -->
+
+                            <div class="col-md-2">
+                                <h6>Remove</h6>
+                            </div>
+                        </div>
+                            <div id="mycart">
+                                <?php
+                                    foreach ($items as $citem)
+                                    {
+                                        ?>
+                                        <div class="card product_data mb-3 ">
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-2">
+                                                        <img src="../admin/uploads/<?= $citem['image']; ?>" alt="Image" width="100px">
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <h5><?= $citem['name']; ?></h5>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <h5>Rp <?php echo number_format($citem['selling_price']); ?></h5>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <input type="hidden" class="prodId" value="<?= $citem['prod_id'] ?>">
+                                                        <div class="input-group mb-3" style="width:130px">
+                                                            <button class="input-group-text decrement-btn updateQty">-</button>
+                                                            <input type="text" class="form-control text-center input-qty bg-white" value="<?= $citem['prod_qty']; ?>" disabled>
+                                                            <button class="input-group-text increment-btn updateQty">+</button>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- <div class="col-md-2">
+                                                        <h5>Rp <?php echo $sub_total = number_format($citem['selling_price'] * $citem['prod_qty']); ?></h5>
+                                                    </div> -->
+
+
+                                                    <div class="col-md-2">
+                                                        <button class="btn btn-danger btn-sm deleteItem" value="<?= $citem['cid']; ?>">Remove</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php
+                                    }
+                                
+                                ?>
+                                <!-- <div class="col-md-2 ">
+                                    <button class="btn btn-primary btn-md" onclick="location.href='checkout.php';">Checkout</button>
+                                    
+                                </div>     -->
+                            </div>
+                            <div class="float-end">
+                                <a href="checkout.php" class="btn btn-outline-primary">Proceed to checkout</a>
+                            </div>
+                    <?php
+                    }else{
+                        ?>
+                            <div class="card card-body shadow text-center">
+                                <h4 class="py-3">Your cart is empty</h4>
+                            </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>

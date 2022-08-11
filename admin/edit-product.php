@@ -45,17 +45,40 @@
                                                 ?>
                                                 </select>
                                             </div>
+
+                                            <div class="col-md-12">
+                                                <label class="mb-0">Select Vendor</label>
+                                                <select name="vendor_id" class="form-select mb-2">
+                                                <option selected>Select Vendor</option>
+                                                <?php 
+                                                    $vendors = getAll("vendors");
+
+                                                    if(mysqli_num_rows($vendors) > 0 )
+                                                    {
+                                                        foreach ($vendors as $vendordata) {
+                                                            ?>
+                                                            <option value="<?= $vendordata['id']; ?>"><?= $vendordata['name']; ?></option>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        echo "No vendors available";
+                                                    }
+                                                ?>
+                                                </select>
+                                            </div>
                                             
                                             <input type="hidden" name="product_id" value="<?= $data['id']; ?>">
                                             <div class="col-md-12">
                                                 <label class="mb-0">Name</label>
                                                 <input type="text" required name="name" value="<?= $data['name']; ?>" placholder="Enter product name" class="form-control mb-2">
                                             </div>
-    
-                                            <div class="col-md-12">
+
+                                             <!-- <div class="col-md-12">
                                                 <label class="mb-0">Vendor</label>
-                                                <input type="text" required name="vendor" value="<?= $data['vendor']; ?>" placholder="Enter vendor name" class="form-control mb-2">
-                                            </div>
+                                                <input type="text" required name="vendor" placholder="Enter vendor name" class="form-control mb-2">
+                                            </div> -->
                                             
                                             <div class="col-md-12">
                                                 <label class="mb-0">Slug</label>
@@ -97,13 +120,13 @@
                                                 </div>
     
                                                 <div class="col-md-3">
-                                                    <label class="mb-0">Status</label> <br>
-                                                    <input type="checkbox" name="status" <?= $data['status'] == '0'?'':'checked' ?>>
+                                                    <label class="mb-0">Hidden</label> <br>
+                                                    <input type="checkbox" name="hidden" <?= $data['hidden'] == '0'?'':'checked' ?>>
                                                 </div>
     
                                                 <div class="col-md-3">
-                                                    <label class="mb-0">Trending</label> <br>
-                                                    <input type="checkbox" name="trending" <?= $data['trending'] == '0'?'':'checked' ?>>
+                                                    <label class="mb-0">Visible</label> <br>
+                                                    <input type="checkbox" name="visible" <?= $data['visible'] == '0'?'':'checked' ?>>
                                                 </div>
                                             </div>
     

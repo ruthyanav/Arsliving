@@ -40,9 +40,10 @@ session_start();
       if(isset($_SESSION['auth']))
       {
          ?>
-         <a href="#">My Order</a>
+         <a href="my_order.php">My Order</a>
          <a href="cart.php">Cart</a>
          <?php $_SESSION['auth_user']['name']; ?>
+         <a href="profile.php">My Profile</a>
          <a href="login/logout.php">Logout</a>
          <?php
       }
@@ -74,24 +75,24 @@ session_start();
          <div class="swiper-slide slide" style="background:url(images/home-slide-1.jpg) no-repeat">
             <div class="content">
                <span>find your favorite things here!</span>
-               <h3>create your dream room here</h3>
-               <a href="package.php" class="btn">Shop Now</a>
+               <h3>create your dream space here</h3>
+               <a href="category.php" class="btn">Shop Now</a>
             </div>
          </div>
 
          <div class="swiper-slide slide" style="background:url(images/home-slide-2.jpg) no-repeat">
             <div class="content">
-               <span>explore, discover, travel</span>
-               <h3>discover the new places</h3>
-               <a href="package.php" class="btn">Shop Now</a>
+               <span>explore, discover, create</span>
+               <h3>discover your taste in design</h3>
+               <a href="category.php" class="btn">Shop Now</a>
             </div>
          </div>
 
          <div class="swiper-slide slide" style="background:url(images/home-slide-3.jpg) no-repeat">
             <div class="content">
-               <span>explore, discover, travel</span>
-               <h3>make your tour worthwhile</h3>
-               <a href="package.php" class="btn">Shop Now</a>
+               <span>trust us</span>
+               <h3>everything is made with heart</h3>
+               <a href="category.php" class="btn">Shop Now</a>
             </div>
          </div>
          
@@ -145,7 +146,7 @@ session_start();
 
     <div class="content">
         <h3>About Us</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, delectus unde cupiditate officiis ullam molestias maiores laboriosam architecto nihil nobis. Ratione laudantium nemo in? Est accusamus amet sapiente aspernatur eveniet?</p>
+        <p>Arsliving is a business engaged in interior design. Arsliving Workshop is located in South Tangerang. Since 2008, Arsliving has served customers such as residential projects or housing and apartment projects. The services provided by Arsliving are interior design services, and design customization services.</p>
         <a href="about.php" class="btn">Read More</a>
     </div>
 
@@ -206,7 +207,7 @@ session_start();
 <section class="home-offer">
    <div class="content">
       <h3>Need to costumize thing?</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil harum mollitia nulla magnam sapiente ipsa temporibus, recusandae aperiam expedita rem.</p>
+      <p>We built everything with heart. It's just one click away to make your desired room comes true. So, what are you waiting for?</p>
       <a href="contact.php" class="btn">Contact Us</a>
    </div>
 </section>
@@ -233,7 +234,7 @@ session_start();
          <h3>Quick Links</h3>
          <a href="home.php"> <i class="fas fa-angle-right"></i> Home</a>
          <a href="about.php"> <i class="fas fa-angle-right"></i> About</a>
-         <a href="product.php"> <i class="fas fa-angle-right"></i> Product</a>
+         <a href="category.php"> <i class="fas fa-angle-right"></i> Product</a>
          <a href="contact.php"> <i class="fas fa-angle-right"></i> Contact Us</a>
       </div>
 

@@ -46,13 +46,13 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="">Status</label>
-                                    <input type="checkbox" required name="status">
+                                    <label for="">Hidden</label>
+                                    <input type="checkbox" required name="hidden">
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="">Popular</label>
-                                    <input type="checkbox" required name="popular">
+                                    <label for="">Visible</label>
+                                    <input type="checkbox" required name="visible">
                                 </div>
 
                                 <div class="col-md-12">

@@ -11,8 +11,8 @@ if(isset($_POST['add_category_btn']))
     $meta_title = $_POST['meta_title'];
     $meta_description = $_POST['meta_description'];
     $meta_keywords = $_POST['meta_keywords'];
-    $status = isset($_POST['status']) ? '1':'0';
-    $popular = isset($_POST['popular']) ? '1':'0';
+    $hidden = isset($_POST['hidden']) ? '1':'0';
+    $visible = isset($_POST['visible']) ? '1':'0';
 
     $image = $_FILES['image']['name'];
 
@@ -22,8 +22,8 @@ if(isset($_POST['add_category_btn']))
     $filename = time().'.'.$image_ext;
 
     $cate_query = "INSERT INTO category
-    (name,slug,description,meta_title,meta_description,meta_keywords,status,popular,image) 
-    VALUES('$name','$slug','$description','$meta_title','$meta_description','$meta_keywords','$status','$popular','$filename')";
+    (name,slug,description,meta_title,meta_description,meta_keywords,hidden,visible,image) 
+    VALUES('$name','$slug','$description','$meta_title','$meta_description','$meta_keywords','$hidden','$visible','$filename')";
     
     $cate_query_run = mysqli_query($con, $cate_query);
 
@@ -121,8 +121,8 @@ else if(isset($_POST['delete_category_btn']))
 else if(isset($_POST['add_product_btn']))
 {
     $category_id = $_POST['category_id'];
+    $vendor_id = $_POST['vendor_id'];
     $name = $_POST['name'];
-    $vendor = $_POST['vendor'];
     $slug = $_POST['slug'];
     $small_description = $_POST['small_description'];
     $description = $_POST['description'];
@@ -132,8 +132,8 @@ else if(isset($_POST['add_product_btn']))
     $meta_title = $_POST['meta_title'];
     $meta_description = $_POST['meta_description'];
     $meta_keywords = $_POST['meta_keywords'];
-    $status = isset($_POST['status']) ? '1':'0';
-    $trending = isset($_POST['trending']) ? '1':'0';
+    $hidden = isset($_POST['hidden']) ? '1':'0';
+    $visible = isset($_POST['visible']) ? '1':'0';
 
     $image = $_FILES['image']['name'];
 
@@ -142,7 +142,7 @@ else if(isset($_POST['add_product_btn']))
     $image_ext = pathinfo($image, PATHINFO_EXTENSION);
     $filename = time().'.'.$image_ext;
 
-    $product_query = "INSERT INTO products(category_id, name, vendor, slug, small_description, description, original_price, selling_price, qty, meta_title, meta_description, meta_keywords, status, trending, image) VALUES ('$category_id','$name', '$vendor', '$slug', '$small_description', '$description', '$original_price', '$selling_price', '$qty', '$meta_title', '$meta_description', '$meta_keywords', '$status', '$trending', '$filename')";
+    $product_query = "INSERT INTO products(category_id, vendor_id, name, slug, small_description, description, original_price, selling_price, qty, meta_title, meta_description, meta_keywords, hidden, visible, image) VALUES ('$category_id','$vendor_id','$name', '$slug', '$small_description', '$description', '$original_price', '$selling_price', '$qty', '$meta_title', '$meta_description', '$meta_keywords', '$hidden', '$visible', '$filename')";
 
     $product_query_run = mysqli_query($con, $product_query);
 
@@ -160,9 +160,8 @@ else if(isset($_POST['update_product_btn']))
 {
     $product_id = $_POST['product_id'];
     $category_id = $_POST['category_id'];
-
+    $vendor_id = $_POST['vendor_id'];
     $name = $_POST['name'];
-    $vendor = $_POST['vendor'];
     $slug = $_POST['slug'];
     $small_description = $_POST['small_description'];
     $description = $_POST['description'];
@@ -172,8 +171,8 @@ else if(isset($_POST['update_product_btn']))
     $meta_title = $_POST['meta_title'];
     $meta_description = $_POST['meta_description'];
     $meta_keywords = $_POST['meta_keywords'];
-    $status = isset($_POST['status']) ? '1':'0';
-    $trending = isset($_POST['trending']) ? '1':'0';
+    $hidden = isset($_POST['hidden']) ? '1':'0';
+    $visible = isset($_POST['visible']) ? '1':'0';
 
     $path = "uploads";
 
@@ -192,7 +191,7 @@ else if(isset($_POST['update_product_btn']))
         $update_filename = $old_image;
     }
 
-    $update_product_query = "UPDATE products SET name='$name', vendor='$vendor', slug='$slug', small_description='$small_description', description='$description', original_price='$original_price', selling_price='$selling_price', qty='$qty', meta_title='$meta_title', meta_description='$meta_description', meta_keywords='$meta_keywords', status='$status', trending='$trending', image='$update_filename' WHERE id='$product_id'";
+    $update_product_query = "UPDATE products SET category_id='$category_id',vendor_id='$vendor_id',name='$name', slug='$slug', small_description='$small_description', description='$description', original_price='$original_price', selling_price='$selling_price', qty='$qty', meta_title='$meta_title', meta_description='$meta_description', meta_keywords='$meta_keywords', hidden='$hidden', visible='$visible', image='$update_filename' WHERE id='$product_id'";
 
     $update_product_query_run = mysqli_query($con, $update_product_query);
 

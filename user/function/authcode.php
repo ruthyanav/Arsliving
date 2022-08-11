@@ -26,7 +26,7 @@ if(isset($_POST['register_btn']))
         if($password == $cpassword)
         {
             //insert data
-            $insert_query = "INSERT INTO user_form(name, phone_number, email, password, user_type) VALUES('$name','$phone_number','$email','$pass','$user_type')";
+            $insert_query = "INSERT INTO user_form(name, phone_number, email, password, user_type) VALUES('$name','$phone_number','$email','$password','$user_type')";
             $insert_query_run = mysqli_query($con, $insert_query);
 
             if($insert_query_run)
@@ -76,11 +76,11 @@ else if(isset($_POST['login_btn']))
         if($user_type == 'admin')
         {
             $_SESSION['message'] = "Welcome to dashboard!";
-            header("Location: http://localhost/Arsliving/admin/index.php");
+            header("Location: http://localhost/Arsliving/admin/category.php");
         }
         else
         {
-            $_SESSION['message'] = "Logged In Successfully";
+            // $_SESSION['message'] = "Logged In Successfully";
             header('Location: ../home.php');
         }
 

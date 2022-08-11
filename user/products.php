@@ -16,11 +16,17 @@ $cid = $category['id'];
    <!-- swiper css link  -->
    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
-   <!-- fot awesome cdn link -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- fot awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- alertify js -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
 </head>
 <body>
@@ -41,7 +47,7 @@ $cid = $category['id'];
       if(isset($_SESSION['auth']))
       {
          ?>
-         <a href="#">My Order</a>
+         <a href="my_order.php">My Order</a>
          <a href="cart.php">Cart</a>
          <?php $_SESSION['auth_user']['name']; ?>
          <a href="login/logout.php">Logout</a>
@@ -66,33 +72,44 @@ $cid = $category['id'];
 
 <!-- packages section starts  -->
 
-<section class="item">
-    <div class="box-container">
-        <?php
-            $products = getProdByCategory($cid);
-            
-            if(mysqli_num_rows($products) > 0)
-            {
-                foreach($products as $item)
-                {
-                    ?>  
-                    <a href="product-view.php?product=<?= $item['slug']; ?>">
-                            <div class="box">
-                                <img src="../admin/uploads/<?= $item['image']; ?>" alt="Product Image">
-                                <h3><?= $item['name']; ?></h3>
-                            </div>
-                    </a>
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
                     <?php
-                }
-            }
-                else
-                {
-                    echo "No data available";
-                }
-        ?>
-    </div>
-</section>
+                        $products = getProdByCategory($cid);
 
+                        if(mysqli_num_rows($products) > 0)
+                        {
+                            foreach($products as $item)
+                            {
+                                ?>
+                                    <div class="col-md-3 mb-2">
+                                        <a href="product-view.php?product=<?= $item['slug']; ?>">
+                                        <div class="card shadow">
+                                            <div class="card-body">
+                                                <img src="../admin/uploads/<?= $item['image']; ?>"  alt="Product Image" class="w-100 mb-2" >
+
+                                                <h4 class="text-center"><?= $item['name']; ?></h4>
+                                                <h5 class="text-center">Rp <?= number_format($item['selling_price']); ?></h4>
+                                            </div>
+                                        </a>
+                                        </div>
+                                    </div>
+                                <?php
+                            }
+                        }
+                        else
+                        {
+                            echo "no data available";
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- packages section ends -->
 

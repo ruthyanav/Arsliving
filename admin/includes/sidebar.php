@@ -17,14 +17,14 @@
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link text-white <?= $page == "index.php"? 'active bg-gradient-primary':''; ?>" href="index.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
-        </li>
+        </li> -->
 
         <li class="nav-item">
           <a class="nav-link text-white <?= $page == "category.php"? 'active bg-gradient-primary':''; ?>" href="category.php">
@@ -79,6 +79,34 @@
             <span class="nav-link-text ms-1">Add Vendor</span>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white <?= $page == "user.php"? 'active bg-gradient-primary':''; ?>" href="user.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">User</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white <?= $page == "shipping-info.php"? 'active bg-gradient-primary':''; ?>" href="shipping-info.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">Shipping Info</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white <?= $page == "order-report.php"? 'active bg-gradient-primary':''; ?>" href="order-report.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">Order Report</span>
+          </a>
+        </li>
+
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">

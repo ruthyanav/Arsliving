@@ -33,15 +33,17 @@ $(document).ready(function(){
         e.preventDefault();
 
         var qty = $(this).closest('.product_data').find('.input-qty').val();
-        var prod_id = $(this).val();
-
+        var product = $(this).val();
+        var array= JSON.parse(product.toString());
         
         $.ajax({
             method: "POST",
             url: "function/handlecart.php",
             data: {
-                "prod_id" : prod_id,
+                "prod_id" : array[0],
+                "prod_name" : array[1],
                 "prod_qty" : qty,
+                "prod_price" : array[2],
                 "scope" : "add"
             },
             success: function(response){
@@ -80,6 +82,7 @@ $(document).ready(function(){
             },
             success: function(response){
                 alert(response);
+                
 
             }
         })

@@ -12,6 +12,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
 
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
     <!-- swiper css link -->
     <link
     rel="stylesheet"
@@ -43,7 +45,7 @@ session_start();
       if(isset($_SESSION['auth']))
       {
          ?>
-         <a href="#">My Order</a>
+         <a href="my_order.php">My Order</a>
          <a href="cart.php">Cart</a>
          <?php $_SESSION['auth_user']['name']; ?>
          <a href="login/logout.php">Logout</a>
@@ -64,19 +66,39 @@ session_start();
 
 <!-- header section ends -->
 
-<div class="heading" style="background:url(images/header-bg-2.png) no-repeat">
-    <h1>Contact Us</h1>
-</div>
+<section class="text-gray-600 body-font">
+    <form id="contact-form" action="https://formspree.io/f/xpznadjp" method="POST">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Form</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Thank you for visiting us. Let's start a project together!</p>
+            </div>
+            <div class="lg:w-1/3 w-full flex-col mx-auto px-8">
+            <div class="relative flex-grow w-full">
+                <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
+                <input type="text" id="full-name" name="full-name" class="w-full bg-gray-300 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
 
+            <div class="relative flex-grow w-full">
+                <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                <input type="email" id="email" name="email" class="w-full bg-gray-300 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
 
+            <div class="relative flex-grow w-full">
+                <label for="subject" class="leading-7 text-sm text-gray-600">Subject</label>
+                <input type="text" id="subject" name="subject" class="w-full bg-gray-300 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
 
+            <div class="relative flex-grow w-full">
+                <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+                <textarea type="text" id="message" name="message" class="w-full bg-gray-300 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"></textarea>
+            </div>
 
-
-
-
-
-
-
+            <button type="submit" class="mt-3 w-full text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">Send</button>
+            </div>
+        </div>
+    </form>
+</section>
 
 <!-- footer section starts -->
 
@@ -125,6 +147,7 @@ session_start();
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
 <!-- custom js file link -->
+<script src="js/form-script.js"></script>
 <script src="js/script.js"></script>
 
 </body>

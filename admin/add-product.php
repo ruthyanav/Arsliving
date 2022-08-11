@@ -35,14 +35,37 @@
                                 </div>
 
                                 <div class="col-md-12">
+                                    <label class="mb-0">Select Vendor</label>
+                                    <select name="vendor_id" class="form-select mb-2">
+                                    <option selected>Select Vendor</option>
+                                    <?php 
+                                        $vendors = getAll("vendors");
+
+                                        if(mysqli_num_rows($vendors) > 0 )
+                                        {
+                                            foreach ($vendors as $vendordata) {
+                                                ?>
+                                                <option value="<?= $vendordata['id']; ?>"><?= $vendordata['name']; ?></option>
+                                                <?php
+                                            }
+                                        }
+                                        else
+                                        {
+                                            echo "No vendors available";
+                                        }
+                                    ?>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12">
                                     <label class="mb-0">Name</label>
                                     <input type="text" required name="name" placholder="Enter product name" class="form-control mb-2">
                                 </div>
 
-                                <div class="col-md-12">
+                                <!-- <div class="col-md-12">
                                     <label class="mb-0">Vendor</label>
                                     <input type="text" required name="vendor" placholder="Enter vendor name" class="form-control mb-2">
-                                </div>
+                                </div> -->
                                 
                                 <div class="col-md-12">
                                     <label class="mb-0">Slug</label>
@@ -81,13 +104,13 @@
                                     </div>
 
                                     <div class="col-md-3">
-                                        <label class="mb-0">Status</label> <br>
-                                        <input type="checkbox" name="status">
+                                        <label class="mb-0">Hidden</label> <br>
+                                        <input type="checkbox" name="hidden">
                                     </div>
 
                                     <div class="col-md-3">
-                                        <label class="mb-0">Trending</label> <br>
-                                        <input type="checkbox" name="trending">
+                                        <label class="mb-0">Visible</label> <br>
+                                        <input type="checkbox" name="visible">
                                     </div>
                                 </div>
 

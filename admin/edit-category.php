@@ -66,13 +66,13 @@ include 'function/myfunction.php';
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <label for="">Status</label>
-                                                    <input type="checkbox" <?= $data['status'] ?"checked":"" ?> name="status">
+                                                    <label for="">Hidden</label>
+                                                    <input type="checkbox" <?= $data['hidden'] ?"checked":"" ?> name="hidden">
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <label for="">Popular</label>
-                                                    <input type="checkbox" <?= $data['popular'] ?"checked":"" ?> name="popular">
+                                                    <label for="">Visible</label>
+                                                    <input type="checkbox" <?= $data['visible'] ?"checked":"" ?> name="visible">
                                                 </div>
 
                                                 <div class="col-md-12">

@@ -9,15 +9,19 @@ include ('function/userfunctions.php');
    <title>Product Category</title>
 
    <!-- swiper css link  -->
-   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
-   <!-- fot awesome cdn link -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- fot awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
 
-   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- alertify js -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
 
 </head>
@@ -39,7 +43,7 @@ include ('function/userfunctions.php');
       if(isset($_SESSION['auth']))
       {
          ?>
-         <a href="#">My Order</a>
+         <a href="my_order.php">My Order</a>
          <a href="cart.php">Cart</a>
          <?php $_SESSION['auth_user']['name']; ?>
          <a href="login/logout.php">Logout</a>
@@ -66,33 +70,44 @@ include ('function/userfunctions.php');
 
 <!-- packages section starts  -->
 
-<section class="products">
-    <div class="box-container">
-        <?php
-            $category = getAllActive("category");
-            
-            if(mysqli_num_rows($category) > 0)
-            {
-                foreach($category as $item)
-                {
-                    ?>  
-                    <a href="products.php?category=<?= $item['slug']; ?>">
-                            <div class="box">
-                                <img src="../admin/uploads/<?= $item['image']; ?>" alt="Category Image">
-                                <h3><?= $item['name']; ?></h3>
-                            </div>
-                    </a>
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
                     <?php
-                }
-            }
-                else
-                {
-                    echo "No data available";
-                }
-        ?>
-    </div>
-</section>
+                        $category = getAllActive("category");
 
+                        if(mysqli_num_rows($category) > 0)
+                        {
+                            foreach($category as $item)
+                            {
+                                ?>
+                                    <div class="col-md-3 mb-2">
+                                        <a href="products.php?category=<?= $item['slug']; ?>">
+                                        <div class="card shadow">
+                                            <div class="card-body">
+                                                <img src="../admin/uploads/<?= $item['image']; ?>"  alt="Category Image" class="w-100 mb-2" >
+
+                                                <h4 class="text-center"><?= $item['name']; ?></h4>
+                                            </div>
+                                          
+                                        </div>
+                                        </a>  
+                                    </div>
+                                <?php
+                            }
+                        }
+                        else
+                        {
+                            echo "no data available";
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- packages section ends -->
 
@@ -107,7 +122,7 @@ include ('function/userfunctions.php');
          <h3>Quick Links</h3>
          <a href="home.php"> <i class="fas fa-angle-right"></i> Home</a>
          <a href="about.php"> <i class="fas fa-angle-right"></i> About</a>
-         <a href="product.php"> <i class="fas fa-angle-right"></i> Product</a>
+         <a href="category.php"> <i class="fas fa-angle-right"></i> Product</a>
          <a href="contact.php"> <i class="fas fa-angle-right"></i> Contact Us</a>
       </div>
 

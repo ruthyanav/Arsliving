@@ -12,6 +12,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
 
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
     <!-- swiper css link -->
     <link
     rel="stylesheet"
@@ -43,7 +45,7 @@ session_start();
       if(isset($_SESSION['auth']))
       {
          ?>
-         <a href="#">My Order</a>
+         <a href="my_order.php">My Order</a>
          <a href="cart.php">Cart</a>
          <?php $_SESSION['auth_user']['name']; ?>
          <a href="login/logout.php">Logout</a>
@@ -76,8 +78,7 @@ session_start();
 
    <div class="content">
       <h3>Why Choose Us?</h3>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure numquam nulla iusto corporis dolor commodi libero, vitae obcaecati optio rerum ab culpa nesciunt, earum mollitia quasi ipsam non. Aliquid, iure.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rerum, delectus voluptate aliquam quaerat iusto repellendus error nulla ab atque.</p>
+      <p>Arsliving is a business engaged in interior design. Since 2008, Arsliving has served customers such as residential projects or housing and apartment projects. We are trusted by 50+ clients to create their desired space. </p>
       <div class="icons-container">
          <div class="icons">
             <i class="fas fa-users"></i>
@@ -85,11 +86,11 @@ session_start();
          </div>
          <div class="icons">
             <i class="fas fa-hand-holding-usd"></i>
-            <span>reasonable price</span>
+            <span>Reasonable Price</span>
          </div>
          <div class="icons">
             <i class="fas fa-headset"></i>
-            <span>good service</span>
+            <span>Good Service</span>
          </div>
       </div>
    </div>
@@ -116,35 +117,9 @@ session_start();
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus facilis laudantium magnam saepe magni ullam possimus laborum voluptas, veniam ipsum officiis quae doloribus minima ut quis. Molestiae qui distinctio possimus?</p>
+            <p>Arsliving serves the best interior design service.</p>
             <h3>John Doe</h3>
             <span>Apartment Owner</span>
-            <img src="images/pic-1.png" alt="">
-         </div>
-
-         <div class="swiper-slide slide">
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-            </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus facilis laudantium magnam saepe magni ullam possimus laborum voluptas, veniam ipsum officiis quae doloribus minima ut quis. Molestiae qui distinctio possimus?</p>
-            <h3>John Doe</h3>
-            <span>Apartment Owner</span>
-            <img src="images/pic-2.png" alt="">
-         </div>
-
-         <div class="swiper-slide slide">
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-            </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus facilis laudantium magnam saepe magni ullam possimus laborum voluptas, veniam ipsum officiis quae doloribus minima ut quis. Molestiae qui distinctio possimus?!</p>
-            <h3>John Doe</h3>
-            <span>Apartment Owner</span>
-            <img src="images/pic-3.png" alt="">
          </div>
 
          <div class="swiper-slide slide">
@@ -155,10 +130,9 @@ session_start();
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
             </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus facilis laudantium magnam saepe magni ullam possimus laborum voluptas, veniam ipsum officiis quae doloribus minima ut quis. Molestiae qui distinctio possimus?</p>
-            <h3>John Doe</h3>
-            <span>Apartment Owner</span>
-            <img src="images/pic-4.png" alt="">
+            <p>Arsliving made my dream rooms happened. They make it really easy and always involved me!</p>
+            <h3>Anna The</h3>
+            <span>House Owner</span>
          </div>
 
          <div class="swiper-slide slide">
@@ -166,11 +140,38 @@ session_start();
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
             </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus facilis laudantium magnam saepe magni ullam possimus laborum voluptas, veniam ipsum officiis quae doloribus minima ut quis. Molestiae qui distinctio possimus?</p>
-            <h3>John Doe</h3>
+            <p>Such a talented crew!</p>
+            <h3>Ari Finn</h3>
             <span>Apartment Owner</span>
-            <img src="images/pic-5.png" alt="">
+         </div>
+
+         <div class="swiper-slide slide">
+            <div class="stars">
+               <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
+            </div>
+            <p>It's been 5 years working with them. Never a dull design from Arsliving.</p>
+            <h3>Joshua Hong</h3>
+            <span>Shop Owner</span>
+         </div>
+
+         <div class="swiper-slide slide">
+            <div class="stars">
+               <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
+            </div>
+            <p>Great design, reasonable price, good service. What can I ask more?</p>
+            <h3>Daniel Im</h3>
+            <span>Shop Owner</span>
          </div>
 
       </div>
@@ -181,7 +182,76 @@ session_start();
 
 <!-- testimony section ends -->
 
-
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Our Works</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">We put our heart in everything we made. It's time to create yours!</p>
+    </div>
+    <div class="flex flex-wrap -m-4">
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="images/work-1.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <h2 class="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">THE SUBTITLE</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Shooting Stars</h1>
+            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="images/work-2.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <h2 class="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">THE SUBTITLE</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">The Catalyzer</h1>
+            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="images/work-3.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <h2 class="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">THE SUBTITLE</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">The 400 Blows</h1>
+            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="images/work-4.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <h2 class="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">THE SUBTITLE</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Neptune</h1>
+            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="images/work-5.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <h2 class="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">THE SUBTITLE</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Holden Caulfield</h1>
+            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="images/work-6.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <h2 class="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">THE SUBTITLE</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Alper Kamu</h1>
+            <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
@@ -196,7 +266,7 @@ session_start();
          <h3>Quick Links</h3>
          <a href="home.php"> <i class="fas fa-angle-right"></i> Home</a>
          <a href="about.php"> <i class="fas fa-angle-right"></i> About</a>
-         <a href="product.php"> <i class="fas fa-angle-right"></i> Product</a>
+         <a href="category.php"> <i class="fas fa-angle-right"></i> Product</a>
          <a href="contact.php"> <i class="fas fa-angle-right"></i> Contact Us</a>
       </div>
 

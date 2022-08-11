@@ -61,7 +61,7 @@ if(isset($_SESSION['message']))
       if(isset($_SESSION['auth']))
       {
          ?>
-         <a href="#">My Order</a>
+         <a href="my_order.php">My Order</a>
          <a href="cart.php">Cart</a>
          <?php $_SESSION['auth_user']['name']; ?>
          <a href="login/logout.php">Logout</a>
@@ -89,39 +89,54 @@ if(isset($_SESSION['message']))
 <!-- packages section starts  -->
 
 <section class="product-view product_data">
-        <?php
-        
-            
-            if($product)
-            {
-                ?>
-                    <div class="image">
-                        <img src="../admin/uploads/<?= $product['image']; ?>" alt="Product Image">
-                    </div>
-                    <div class="content">
-                        <h4><?= $product['name']; ?></h4>
-                        <hr>
-                        <h5>Rp <?= $product['selling_price']; ?></h5>
-                        <p><?= $product['description']; ?></p>
+<?php
 
-                        <div class="input-group mb-3" style="width:130px">
-                            <button class="input-group-text decrement-btn">-</button>
-                            <input type="text" class="form-control text-center input-qty bg-white" value="1" disabled>
-                            <button class="input-group-text increment-btn">+</button>
-                        </div>
+if($product)
+{
+    ?>
+    <div class="bg-light py-4 mb-3">
+        <div class="container product_data ">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="shadow">
+                        <img src="../admin/uploads/<?= $product['image']; ?>" alt="Product Image" class="w-100">
+                    </div>
+                </div>
 
-                        <div class="button">
-                            <button class="btn btn-primary px4 addToCartBtn" value="<?= $product['id']; ?>"> <i class="fa fa-shopping-chart me-2"></i>Add to cart</button>
+                <div class="col-md-8">
+                    <h3><?= $product['name'] ?></h3>
+                    <h4>Rp <?= number_format($product['selling_price']) ?></h4>
+                    <hr>
+                    <h5><?= $product['description'] ?></h5>
+
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <div class="input-group mb-3" style="width:130px">
+                                <button class="input-group-text decrement-btn">-</button>
+                                <input type="text" class="form-control text-center input-qty bg-white" value="1" disabled>
+                                <button class="input-group-text increment-btn">+</button>
+                            </div>
                         </div>
                     </div>
-                    <?php
-            }
-                else
-                {
-                    echo "Product Not Found";
-                }
-        ?>
-</section>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                        <button class="btn btn-primary px4 addToCartBtn" value='[<?=$product["id"]?>,"<?=$product["name"]?>",<?=$product["selling_price"]?>]'> <i class="fa fa-shopping-chart me-2"></i>Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <?php
+}
+else
+{
+    echo "Product not found";
+}
+
+?>
 
 <!-- packages section ends -->
 

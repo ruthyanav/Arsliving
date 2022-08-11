@@ -19,6 +19,10 @@ include 'function/myfunction.php';
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Image</th>
+                                <th>Original Price</th>
+                                <th>Selling Price</th>
+                                <th>Quantity</th>
+                                <th>Vendor ID</th>
                                 <th>Status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
@@ -35,12 +39,23 @@ include 'function/myfunction.php';
                                         ?>
                                             <tr>
                                             <td><?= $item['id']; ?></td>
+                                            
                                             <td><?= $item['name']; ?></td>
+                                            
                                             <td>
                                                 <img src="../admin/uploads/<?= $item['image']; ?>" width="100px" height="100px" alt="<?= $item['name']; ?>">
                                             </td>
+
+                                            <td> Rp <?= number_format($item['original_price']); ?></td>
+
+                                            <td>Rp <?= number_format($item['selling_price']); ?></td>
+
+                                            <td><?= $item['qty']; ?></td>
+
+                                            <td><?= $item['vendor_id']; ?></td>
+                                            
                                             <td>
-                                                <?= $item['status'] ==  '0'? "Visible": "Hidden" ?>
+                                                <?= $item['hidden'] ==  '0'? "Visible": "Hidden" ?>
                                             </td>
 
                                             <td>

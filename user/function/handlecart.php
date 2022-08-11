@@ -11,7 +11,9 @@ if(isset($_SESSION['auth']))
         {
             case "add":
                 $prod_id = $_POST['prod_id'];
+                $prod_name = $_POST['prod_name'];
                 $prod_qty = $_POST['prod_qty'];
+                $prod_price = $_POST['prod_price'];
 
                 $user_id = $_SESSION['auth_user']['user_id'];
 
@@ -24,7 +26,7 @@ if(isset($_SESSION['auth']))
                 }
                 else
                 {
-                    $insert_query = "INSERT INTO cart (user_id, prod_id, prod_qty) VALUES ('$user_id', '$prod_id', '$prod_qty')";
+                    $insert_query = "INSERT INTO cart (user_id, prod_id, prod_name, prod_qty, prod_price) VALUES ('$user_id', '$prod_id', '$prod_name', '$prod_qty', '$prod_price')";
                     $insert_query_run = mysqli_query($con, $insert_query);
 
                     if($insert_query_run)
